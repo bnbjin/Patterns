@@ -4,24 +4,18 @@
 namespace pattern
 {
 
-class singleton
-{
-public:
-	
-	~singleton();
-
-	static singleton* getinstance();
-
-private:
-
-	singleton();
-
-	singleton(const singleton&);
-
-	singleton& operator=(singleton&);
-
-	static singleton* instance;
-};
+    class singleton
+    {
+    public:
+	    ~singleton();
+	    static singleton* getinstance();
+    protected:
+        singleton();
+    private:
+        singleton(singleton&);
+        singleton& operator=(singleton&);
+        static singleton* instance;
+    };
 
 } // pattern
 
