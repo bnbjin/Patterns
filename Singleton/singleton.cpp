@@ -1,14 +1,10 @@
 #include "singleton.h"
 
-pattern::singleton* pattern::singleton::instance = 0;
+using namespace pattern;
 
-pattern::singleton::singleton()
-{}
+singleton* singleton::instance = 0;
 
-pattern::singleton::~singleton()
-{}
-
-pattern::singleton* pattern::singleton::getinstance()
+singleton* singleton::get_ptr()
 {
 	if (0 == instance)
 	{
@@ -16,4 +12,14 @@ pattern::singleton* pattern::singleton::getinstance()
 	}
 	
 	return instance;
+}
+
+singleton& singleton::get_ref()
+{
+	if (0 == instance)
+	{
+		instance = new singleton();
+	}
+	
+	return *instance;
 }

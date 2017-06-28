@@ -1,36 +1,39 @@
 #ifndef __SINGLETON_H__
 #define __SINGLETON_H__
 
-template <class T>
-class singleton
+namespace pattern
 {
-public:
-    ~singleton() {}
-    static T* get_ptr()
+    template <class T>
+    class singleton
     {
-        if (0 == instance)
+    public:
+        ~singleton() {}
+        static T* get_ptr()
         {
-            instance = new T;
+            if (0 == inst)
+            {
+                inst = new T;
+            }
+            return inst;
         }
-        return instance;
-    }
-    static T& get_ref()
-    {
-        if (0 == instance)
+        static T& get_ref()
         {
-            instance = new T;
+            if (0 == inst)
+            {
+                inst = new T;
+            }
+            return *inst;
         }
-        return *instance;
-    }
-protected:
-    singleton() {}
-private:
-    static T* instance;
-    singleton(const singleton<T>&);
-    singleton<T>& operator=(singleton<T>&);
-};
+    protected:
+        singleton() {}
+    private:
+        static T* inst;
+        singleton(const singleton<T>&);
+        singleton<T>& operator=(singleton<T>&);
+    };
+}
 
 template <class T>
-T* singleton<T>::instance = 0;
+T* singleton<T>::inst = 0;
 
 #endif // __SINGLETON_H__

@@ -8,13 +8,14 @@ namespace pattern
     {
     public:
 	    ~singleton();
-	    static singleton* getinstance();
+	    static singleton* get_ptr();
+        static singleton& get_ref();
     protected:
         singleton();
     private:
+        static singleton* instance;
         singleton(singleton&);
         singleton& operator=(singleton&);
-        static singleton* instance;
     };
 
 } // pattern
