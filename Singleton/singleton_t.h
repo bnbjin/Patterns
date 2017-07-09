@@ -31,9 +31,9 @@ namespace pattern
         singleton(const singleton<T>&);
         singleton<T>& operator=(singleton<T>&);
     };
-}
 
-template <class T>
-T* singleton<T>::inst = 0;
+    template <class T>
+    T* singleton<T>::inst = 0;
+}
 
 #endif // __SINGLETON_H__
