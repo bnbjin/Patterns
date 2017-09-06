@@ -10,7 +10,20 @@ enum MOD_ID
 	MI_FIREWALL,
 	MI_PACKET,
 	MI_LOGON,
-	MI_WINDO
+	MI_WINDO,
+	MI_WINDO_SUB
+};
+
+const char* MOD_NAME_TBL[] = {
+	"agent",
+	"proc",
+	"file",
+	"net",
+	"firewall",
+	"packet",
+	"logon",
+	"window",
+	"window_sub"
 };
 
 #endif // __MOD_CFG_H__
